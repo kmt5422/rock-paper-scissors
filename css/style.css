@@ -1,0 +1,64 @@
+/* DEFAULT STYLES */
+h1 {
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER STYLES */
+
+header {
+    height: 6rem;
+    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header > h1 {
+    text-align: center;
+}
+
+/* GAME CONTAINER STYLES */
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    justify-content: center;
+    margin-top: 8%;
+}
+
+.player-section, .computer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-section {
+}
+
+.game-section > h2 {
+    text-align: center;
+}
+
+.game-section > .choices {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-section > .choices > img {
+    display: block;
+}
