@@ -11,7 +11,7 @@ let computerScore = 0;
 function playRound(event) {
     const playerChoice = event.target.getAttribute('data-value');
     const computerChoice = getComputerChoice();
-    const {winner, message} = getRoundWinner(playerChoice, computerChoice);
+    let {winner, message} = getRoundWinner(playerChoice, computerChoice);
     if (winner == 'player') {
         playerScore++;
         playerScoreH2.textContent = `Player Score: ${playerScore}`;
@@ -19,11 +19,26 @@ function playRound(event) {
         computerScore++;
         computerScoreH2.textContent = `Computer Score: ${computerScore}`;
     }
+
+    if (playerScore == 5) {
+        message = `Congratulations! You beat the computer 5:${computerScore}. Choose to play again.`;
+        resetGame();
+    } else if (computerScore == 5) {
+        message = `You lose! The computer beat you 5:${playerScore}. Choose to play again.`;
+        resetGame();
+    }
     gameMessageH2.textContent = message;
 }
 
 function getComputerChoice() {
     return ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
+}
+
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreH2.textContent = `Player Score: ${playerScore}`;
+    computerScoreH2.textContent = `Computer Score: ${computerScore}`;
 }
 
 function getRoundWinner (playerChoice, computerChoice) {
